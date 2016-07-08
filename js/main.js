@@ -8,7 +8,7 @@ var
   filters = [],
   currentFilter = 0,
   MOCK_VIDEO = '/videos/Shopping Mall - 1887.mp4',
-    contrast = 0;
+    contrast;
 
 var leapController =  Leap.loop({enableGestures: true}, function(frame){
         frame.hands.forEach(function(hand){
@@ -62,7 +62,7 @@ if (typeof MediaStreamTrack === 'undefined' && navigator.getUserMedia) {
 function streamFound(stream) {
     initVideo(URL.createObjectURL(stream));
 }
-    
+
 function initVideo(src) {
   document.body.appendChild(video);
   video.src = src;

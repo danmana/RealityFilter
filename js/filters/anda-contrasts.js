@@ -1,5 +1,16 @@
 (function(){
 
+	if (!contrast) {
+		contrast = 0;
+		var multiplier = 12;
+		setInterval(function(){
+			contrast = contrast + multiplier;
+			if (contrast > 242 || contrast <0) {
+				multiplier = (-1) * multiplier;
+			}
+		}, 30);
+	}
+
 window.filters.push({
 	name : 'contrast',
 	author : 'anda',
