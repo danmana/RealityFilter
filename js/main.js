@@ -9,14 +9,21 @@ var
   currentFilter = 0,
   MOCK_VIDEO = '/videos/Shopping Mall - 1887.mp4';
 
+var leapController =  Leap.loop({enableGestures: true}, function(frame){
+});
+
 init();
 
 function init() {
 container = document.getElementById('webglviewer');
 
-setInterval(function(){
-    currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
-}, 6000);
+    leapController.on("gesture", function(gesture) {
+        console.log(gesture);
+        if (gesture.type == "swipe") {
+            currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+        }
+    });
+    
 document.addEventListener('click', fullscreen, false);
 window.addEventListener('resize', resize, false);
 
