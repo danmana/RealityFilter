@@ -87,7 +87,7 @@ window.filters.push({
 
 					}
 
-					hurt--;
+					hurt-=2;
 					// imageData = Filters.gaussianBlur(imageData, data[i] / red);
 				}
 
