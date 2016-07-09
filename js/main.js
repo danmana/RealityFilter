@@ -8,6 +8,7 @@ var
   filters = [],
   currentFilter = 0,
   contrast,
+  gest,
   MOCK_VIDEO = '/videos/Shopping Mall - 1887.mp4';
 
   var leapController =  Leap.loop({enableGestures: true}, function(frame){
@@ -170,3 +171,5 @@ if (container.requestFullscreen) {
 }
 
 }
+
+gest.start();
