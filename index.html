@@ -27,14 +27,24 @@
   </head>
   <body>
     <div id="webglviewer"></div>
-
+    <img id="img-map" src="./textures/displace.png"/>
     <!--<script src="./js/three.min.js"></script>-->
     <!--<script src="./js/StereoEffect.js"></script>-->
     <script src="./js/close-pixelate-canvas.js"></script>
-    <script src="./js/tracking/tracking.js"></script>
+
     <script src="./js/leap/leap-0.6.4.min.js"></script>
     <script src="./js/gest/gest.min.js"></script>
 
+    <script src="./js/tracking/tracking.js"></script>
+    <script src="./js/tracking/objectdetect.js"></script>
+    <script src="./js/tracking/objectdetect.frontalface_alt.js"></script>
+    <script src="./js/tracking/objectdetect.eye.js"></script>
+    <script src="./js/tracking/smoother.js"></script>
+
+
+
+    <script src="http://js.leapmotion.com/leap-0.6.4.min.js"></script>
+    <script src="js/filters/displacement.js"></script>
 
     <script src="./js/main.js"></script>
     <script src="./js/filters/canvasfilters.js"></script>
@@ -43,16 +53,22 @@
 
 
     <!-- add your filters here -->
-    <!-- <script src="./js/filters/beach.js"></script> -->
+    <script src="./js/filters/beach.js"></script>
 
      <script src="./js/filters/example-arcade.js"></script>
     <!-- <script src="./js/filters/example-blackandwhite.js"></script>
     <script src="./js/filters/example-inverse.js"></script>
     <script src="./js/filters/example-sepia.js"></script> -->
+    <!--<script src="./js/filters/vidi-baw.js"></script>-->
+
+
+    <script src="./js/filters/beach.js"></script>
+
+    <script src="./js/filters/example-arcade.js"></script>
     <script src="./js/filters/example-color-flow.js"></script>
 
     <<script src="./js/filters/vidi-mirror.js"></script>
-    <script src="./js/filters/vidi-baw.js"></script>
+
     <script src="./js/filters/vidi-trippin.js"></script>
     <<script src="./js/filters/anda-contrasts.js"></script>
     <script src="./js/filters/vidi-blurspin.js"></script>
@@ -60,5 +76,9 @@
     <script src="./js/filters/vidi-blending.js"></script>
     <script src="js/filters/delia-filter.js"></script>
     <script src="js/filters/vidi-bitchslap.js"></script>
+    <script src="./js/filters/anda-zoom.js"></script>
+
+    <!--<script src="js/filters/eyes.js"></script>-->
+
   </body>
 </html>

@@ -33,16 +33,29 @@ function isCyan(r, g, b) {
 
 
 function isYellow(r, g, b) {
-    var threshold = 40,
-      dx = r - 255,
-      dy = g - 255,
-      dz = b - 0;
+    var threshold = 20,
+          dx = r - 255,
+          dy = g - 0,
+          dz = b - 255;
 
-    if ((r - b) >= threshold && (g - b) >= threshold) {
-      return true;
-    }
-    return dx * dx + dy * dy + dz * dz < 10000;
+        if ((r - g) >= threshold ) {
+          return true;
+        }
+        return dx * dx + dy * dy + dz * dz < 19600;
   }
+
+
+  function isYellow2(r, g, b) {
+      var threshold = 50,
+        dx = r - 255,
+        dy = g - 255,
+        dz = b - 0;
+
+      if ((r - b) >= threshold && (g - b) >= threshold) {
+        return true;
+      }
+      return dx * dx + dy * dy + dz * dz < 10000;
+    }
 
 function saturate(d,i,r,g,b) {
     var value = 1.75;

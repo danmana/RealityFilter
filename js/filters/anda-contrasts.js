@@ -1,16 +1,15 @@
 (function(){
 
 	if (!contrast) {
-	  contrast = 0;
+		contrast = 0;
 		var multiplier = 12;
-  	setInterval(function(){
-	  	contrast = contrast + multiplier;
-	  	if (contrast > 242 || contrast <0) {
-	  		multiplier = (-1) * multiplier;
-	  	}
-  	}, 30);
-  }
-
+		setInterval(function(){
+			contrast = contrast + multiplier;
+			if (contrast > 242 || contrast <0) {
+				multiplier = (-1) * multiplier;
+			}
+		}, 30);
+	}
 
 window.filters.push({
 	name : 'contrast',
@@ -28,9 +27,11 @@ window.filters.push({
 			data[i+2] = factor * (data[i+2] - 128) + 128;
 		}
 
+
         // paint the new data
 		imageData.data = data;
 		context.putImageData(imageData, 0, 0);
+
 	}
 });
 
