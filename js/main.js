@@ -8,7 +8,15 @@ var
   filters = [],
   currentFilter = 0,
   contrast,
-  MOCK_VIDEO = '/videos/Shopping Mall - 1887.mp4';
+  MOCK_VIDEO = '/videos/Shopping Mall - 1887.mp4',
+    contrast;
+
+var leapController =  Leap.loop({enableGestures: true}, function(frame){
+        frame.hands.forEach(function(hand){
+            contrast = hand.palmPosition[1];
+        });
+});
+
 
   var leapController =  Leap.loop({enableGestures: true}, function(frame){
     frame.hands.forEach(function(hand) {
@@ -20,6 +28,7 @@ init();
 
 function init() {
 container = document.getElementById('webglviewer');
+
 
 setInterval(function(){
      currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
@@ -47,6 +56,13 @@ document.onkeydown = function(e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 };
+
+
+    leapController.on("gesture", function(gesture) {
+        if (gesture.type == "swipe") {
+            currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+        }
+    });
 
 document.addEventListener('click', fullscreen, false);
 window.addEventListener('resize', resize, false);
@@ -84,8 +100,6 @@ if (typeof MediaStreamTrack === 'undefined' && navigator.getUserMedia) {
 function streamFound(stream) {
     initVideo(URL.createObjectURL(stream));
 }
-
-
 
 function initVideo(src) {
   document.body.appendChild(video);
