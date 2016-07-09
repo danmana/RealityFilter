@@ -33,7 +33,7 @@ function isCyan(r, g, b) {
 
 
 function isYellow(r, g, b) {
-    var threshold = 40,
+    var threshold = 50,
       dx = r - 255,
       dy = g - 255,
       dz = b - 0;
@@ -93,7 +93,7 @@ window.filters.push({
                 alpha = pinkData[i + 3];
 
             // pink like
-            if (isMagenta(red,green,blue) || isYellow(red,green,blue)) {
+            if (isMagenta(red,green,blue) || isYellow(red,green,blue) || isCyan(red,green,blue)) {
                 saturate(pinkData, i, red, green, blue);
 //                pinkData[i] = red;
 //                pinkData[i+1] = green;
