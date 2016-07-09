@@ -30,13 +30,11 @@ window.filters.push({
             if (coords[0]) {
                 var coord = coords[0];
                 coord = smoother.smooth(coord);
-    console.log(coord);
                 // Rescale coordinates from detector to video coordinate space:
                 coord[0] *= canvas.width / detector.canvas.width;
                 coord[1] *= canvas.height / detector.canvas.height;
                 coord[2] *= canvas.width / detector.canvas.width;
                 coord[3] *= canvas.height / detector.canvas.height;
-    //console.log(coord);
                 // Display glasses overlay:
                 var rect = {};
                 rect.x    = ~~(coord[0] + coord[2] * 1.0/8 ) ;

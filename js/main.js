@@ -17,13 +17,6 @@ var leapController =  Leap.loop({enableGestures: true}, function(frame){
         });
 });
 
-
-  var leapController =  Leap.loop({enableGestures: true}, function(frame){
-    frame.hands.forEach(function(hand) {
-      contrast = hand.palmPosition[1];
-    });
-  });
-
 init();
 
 function init() {
@@ -57,12 +50,6 @@ document.onkeydown = function(e) {
     e.preventDefault(); // prevent the default action (scroll / move caret)
 };
 
-
-    leapController.on("gesture", function(gesture) {
-        if (gesture.type == "swipe") {
-            currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
-        }
-    });
 
 document.addEventListener('click', fullscreen, false);
 window.addEventListener('resize', resize, false);
