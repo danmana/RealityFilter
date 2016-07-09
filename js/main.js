@@ -25,25 +25,39 @@ container = document.getElementById('webglviewer');
 
 
 setInterval(function(){
-     currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+     nextFilter();
 }, 6000);
 
 leapController.on("gesture", function(gesture) {
     // change filters by swiping
     if (gesture.type == "swipe") {
-        currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+        nextFilter();
     }
 });
+
+function nextFilter() {
+  if (currentFilter.pause) {
+    currentFilter.pause();
+  }
+
+  currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+} function prevFilter() {
+  if (currentFilter.pause) {
+    currentFilter.pause();
+  }
+
+  currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+}
 
 document.onkeydown = function(e) {
     switch(e.which) {
         case 37: // left
-          currentFilter = (0 < currentFilter - 1) ? currentFilter - 1 : filters.length;
+          prevFilter();
 					console.log("Change effect previous");
         break;
 
         case 39: // right
-          currentFilter = (filters.length > currentFilter + 1) ? currentFilter + 1 : 0;
+          nextFilter();
 					console.log("Change effect next");
         break;
         default: return; // exit this handler for other keys
