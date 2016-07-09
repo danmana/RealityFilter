@@ -33,7 +33,7 @@ function isCyan(r, g, b) {
 
 
 function isYellow(r, g, b) {
-    var threshold = 20,
+    var threshold = 30,
           dx = r - 255,
           dy = g - 0,
           dz = b - 255;
