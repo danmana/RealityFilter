@@ -37,16 +37,16 @@ leapController.on("gesture", function(gesture) {
 });
 
 function nextFilter() {
-  if (currentFilter.pause) {
-    currentFilter.pause();
+  if (filters[currentFilter].pause) {
+    filters[currentFilter].pause();
   }
 
   currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
 }
 function prevFilter() {
-  if (currentFilter.pause) {
-    currentFilter.pause();
-  }
+  if (filters[currentFilter].pause) {
+      filters[currentFilter].pause();
+    }
 
   currentFilter = currentFilter == 0 ? filters.length - 1 : currentFilter - 1;
 
