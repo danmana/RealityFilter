@@ -8,6 +8,7 @@ var map = document.createElement('canvas');
 
 	var filter = null;
 	var filter2 = null;
+	var rect = {};
 
 
 
@@ -36,7 +37,6 @@ window.filters.push({
                 coord[2] *= canvas.width / detector.canvas.width;
                 coord[3] *= canvas.height / detector.canvas.height;
                 // Display glasses overlay:
-                var rect = {};
                 rect.x    = ~~(coord[0] + coord[2] * 1.0/8 ) ;
                 rect.y     = ~~(coord[1] + coord[3] * 2.1/8 ) ;
                 rect.width   = ~~(coord[2] * 6/8);

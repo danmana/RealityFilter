@@ -9,7 +9,7 @@ var
   currentFilter = 0,
   contrast,
   gest,
-  MOCK_VIDEO = 'https://danmana.github.io/RealityFilter/videos/Shopping%20Mall%20-%201887.mp4',
+  MOCK_VIDEO = top.location.pathname + 'videos/Shopping%20Mall%20-%201887.mp4',
     contrast;
 
 var leapController =  Leap.loop({enableGestures: true}, function(frame){
@@ -24,9 +24,10 @@ function init() {
 container = document.getElementById('webglviewer');
 
 
+// change automatically after 5 min
 setInterval(function(){
      nextFilter();
-}, 6000);
+}, 5 * 60 * 1000);
 
 leapController.on("gesture", function(gesture) {
     // change filters by swiping
@@ -41,12 +42,14 @@ function nextFilter() {
   }
 
   currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
-} function prevFilter() {
+}
+function prevFilter() {
   if (currentFilter.pause) {
     currentFilter.pause();
   }
 
-  currentFilter = (filters.length > currentFilter+1) ? currentFilter+1 : 0;
+  currentFilter = currentFilter == 0 ? filters.length - 1 : currentFilter - 1;
+
 }
 
 document.onkeydown = function(e) {
