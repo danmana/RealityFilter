@@ -9,7 +9,7 @@ var
   currentFilter = 0,
   contrast,
   gest,
-  MOCK_VIDEO = '/videos/Shopping Mall - 1887.mp4',
+  MOCK_VIDEO = 'https://danmana.github.io/RealityFilter/videos/Shopping%20Mall%20-%201887.mp4',
     contrast;
 
 var leapController =  Leap.loop({enableGestures: true}, function(frame){
