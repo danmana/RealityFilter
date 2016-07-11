@@ -45,11 +45,18 @@ function fillPixel(i, dx, dy, width, data, data2) {
 window.filters.push({
 	name : 'beach',
 	author : 'rares',
+	pause: function(){
+	    video.pause();
+	},
 	draw : function (canvas, context, bigCanvas, bigContext) {
       // get the raw image data
 		var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 		var data = imageData.data;
     var tmp = data.slice(0);
+
+    if (video.paused) {
+        video.play();
+    }
 
 
 
