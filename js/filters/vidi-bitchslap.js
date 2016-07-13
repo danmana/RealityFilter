@@ -1,5 +1,5 @@
 (function(){
-
+var tutorialTimeout = null;
 
 var horizontal = false, vertical = false;
 
@@ -10,6 +10,7 @@ var finishHim = new Audio('audio/finish-him.mp3')
 var hurt = 0;
 
 var paused = true;
+var tutorialTimeout = null;
 
 	gest.options.subscribeWithCallback(function(gesture) {
 	    //handle gesture .direction .up .down .left .right .error
@@ -17,6 +18,18 @@ var paused = true;
 			if (paused) {
 				return;
 			}
+
+			document.getElementById('slapTutorial').style.display = 'none';
+
+			if (tutorialTimeout) {
+                clearTimeout(tutorialTimeout);
+                tutorialTimeout = null;
+            }
+            // show the tutorial after 5 min of inactivity
+            tutorialTimeout = setTimeout(function(){
+                showTutorial = true;
+                tutorialTimeout = null;
+            },5 * 60 * 1000);
 
 			if (gesture.left || gesture.right) {
 				// horizontal = true;
@@ -47,13 +60,26 @@ var paused = true;
 	          a: Filters.identityLUT()
 	        };
 
+var showTutorial = true;
+
 window.filters.push({
 	name : 'bitchslap',
 	author : 'vidi',
 	pause: function(){
 		paused = true;
+		showTutorial = true;
+		document.getElementById('slapTutorial').style.display = 'none';
+		if (tutorialTimeout) {
+		    clearTimeout(tutorialTimeout);
+		    tutorialTimeout = null;
+		}
 	},
 	draw : function (canvas, context) {
+	    if (showTutorial) {
+	        showTutorial = false;
+	        document.getElementById('slapTutorial').style.display = 'block';
+	    }
+
 			paused = false;
 	    // get the raw image data
 		var imageData = Filters.getPixels(canvas);

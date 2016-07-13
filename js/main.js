@@ -12,11 +12,6 @@ var
   MOCK_VIDEO = top.location.pathname + 'videos/Shopping%20Mall%20-%201887.mp4',
     contrast;
 
-var leapController =  Leap.loop({enableGestures: true}, function(frame){
-        frame.hands.forEach(function(hand){
-            contrast = hand.palmPosition[1];
-        });
-});
 
 init();
 
@@ -29,12 +24,6 @@ setInterval(function(){
      nextFilter();
 }, 5 * 60 * 1000);
 
-leapController.on("gesture", function(gesture) {
-    // change filters by swiping
-    if (gesture.type == "swipe") {
-        nextFilter();
-    }
-});
 
 function nextFilter() {
   if (filters[currentFilter].pause) {
@@ -69,7 +58,9 @@ document.onkeydown = function(e) {
 };
 
 
-document.addEventListener('click', fullscreen, false);
+document.addEventListener('click', function(){
+    nextFilter();
+}, false);
 window.addEventListener('resize', resize, false);
 
 video = document.createElement('video');
