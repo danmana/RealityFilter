@@ -13,10 +13,10 @@ var
     contrast;
 
 var leapController =  Leap.loop({enableGestures: true}, function(frame){
- -        frame.hands.forEach(function(hand){
- -            contrast = hand.palmPosition[1];
- -        });
- -});
+         frame.hands.forEach(function(hand){
+             contrast = hand.palmPosition[1];
+         });
+ });
 init();
 
 function init() {
