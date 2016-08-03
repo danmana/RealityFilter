@@ -12,7 +12,11 @@ var
   MOCK_VIDEO = top.location.pathname + 'videos/Shopping%20Mall%20-%201887.mp4',
     contrast;
 
-
+var leapController =  Leap.loop({enableGestures: true}, function(frame){
+ -        frame.hands.forEach(function(hand){
+ -            contrast = hand.palmPosition[1];
+ -        });
+ -});
 init();
 
 function init() {
